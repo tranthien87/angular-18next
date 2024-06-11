@@ -1,29 +1,25 @@
-import {Component, effect, signal} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {CommandModule} from "@angular/cli/src/command-builder/command-module";
-import {data} from "autoprefixer";
+import {Component, effect, inject, signal} from '@angular/core';
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {Title} from "@angular/platform-browser";
+import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'app-profile-page',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.css'
 })
 export class ProfilePageComponent {
-  readonly  age = signal(0);
-
-  constructor(private activeRoute: ActivatedRoute, private title: Title) {
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private title: Title ,
+    private router: Router,
+    private viewport: ViewportScroller
+  ) {
     activeRoute.data.subscribe(data => this.title.setTitle(data['title']));
-    effect(() => {
-      console.log(`The current age is: ${this.age()}`);
-    });
   }
-  increment = () => {
-    this.age.update(value => value + 1);
-
+  scrollToFragment (fragment: string){
+    this.viewport.scrollToAnchor(fragment)
   }
-
-
 }
