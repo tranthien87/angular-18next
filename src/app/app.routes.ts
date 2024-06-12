@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
-import {ProfilePageComponent} from "./profile-page/profile-page.component";
-import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
-import {AppComponent} from "./app.component";
+import {ProfilePageComponent} from "./page/profile-page/profile-page.component";
+import {NotFoundPageComponent} from "./page/not-found-page/not-found-page.component";
 import {HomeComponent} from "./page/home/home.component";
 
 

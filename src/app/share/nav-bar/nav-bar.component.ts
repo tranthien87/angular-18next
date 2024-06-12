@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {DOCUMENT, NgClass} from "@angular/common";
 
@@ -10,7 +10,6 @@ import {DOCUMENT, NgClass} from "@angular/common";
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
-
   active: string = 'Home';
   constructor(
     private _router: Router,
