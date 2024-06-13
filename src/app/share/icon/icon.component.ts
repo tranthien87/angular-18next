@@ -18,6 +18,7 @@ export class IconComponent implements OnChanges{
   @Input() iconType: string = 'default';
   iconStyleState:  {[kye: string]: boolean} = {};
   ngOnChanges(changes: SimpleChanges) {
+
     if (changes) {
       addClassToObject(this.iconStyleState, [IconSizeClasses[this.iconSize]]);
     }

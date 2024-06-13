@@ -15,7 +15,6 @@ export class ProcessInfoComponent implements OnChanges{
   dataState: any = {};
 
   ngOnChanges(changes: SimpleChanges) {
-
     if (changes['type']) {
       switch (this.type) {
         case ProcessInfoTypes.RESEARCH: this.dataState = ProcessInfoTypeConfig[ProcessInfoTypes.RESEARCH];
@@ -28,6 +27,5 @@ export class ProcessInfoComponent implements OnChanges{
           break;
       }
     }
-
   }
 }

@@ -1,6 +1,6 @@
-import {Component, inject, Input} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {Router, RouterLink, RouterOutlet} from "@angular/router";
-import {DOCUMENT, NgClass} from "@angular/common";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,7 +9,8 @@ import {DOCUMENT, NgClass} from "@angular/common";
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
-export class NavBarComponent {
+export class NavBarComponent implements AfterViewInit {
+  private contact: HTMLElement | null = null;
   active: string = 'Home';
   constructor(
     private _router: Router,
@@ -25,9 +26,15 @@ export class NavBarComponent {
       case 'Home': this._router.navigate(['']); break;
 
       case 'Contact' :
-        // document.getElementById("contact").scrollIntoView({behavior:'smooth'});break
+        if (this.contact) {
+          this.contact.scrollIntoView({behavior: "smooth"});
+        }
+        break;
       default: this._router.navigate(['']); break;
 
     }
+  }
+  ngAfterViewInit() {
+    this.contact = document.getElementById('contact');
   }
 }

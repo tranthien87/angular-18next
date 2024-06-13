@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NavBarComponent} from "./share/nav-bar/nav-bar.component";
-import {FooterComponent} from "./share/footer/footer.component";
+import {ContactSectionComponent} from "./components/contact-section/contact-section.component";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavBarComponent, FooterComponent],
+  imports: [RouterOutlet, NavBarComponent, ContactSectionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

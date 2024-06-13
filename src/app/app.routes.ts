@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import {ProfilePageComponent} from "./page/profile-page/profile-page.component";
 import {NotFoundPageComponent} from "./page/not-found-page/not-found-page.component";
 import {HomeComponent} from "./page/home/home.component";
+
 
 
 export const routes: Routes = [
@@ -10,7 +10,16 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: "profile", component: ProfilePageComponent,
+    path: "about",
+    loadComponent: () => import('./page/about/about.component').then(c => c.AboutComponent)
+  },
+  {
+    path: "projects",
+    loadComponent: () => import('./page/project/project.component' ).then(c => c.ProjectComponent)
+  },
+  {
+    path: "profile",
+    loadComponent: () => import('./page/profile-page/profile-page.component').then(c => c.ProfilePageComponent),
     data: {
       title: "Portfolio",
       values: {
